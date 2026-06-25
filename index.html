@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2ero | DJ & OFlowers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0D0D0D;
+            --text: #E8E8E8;
+            --text-dim: #999999;
+            --text-faint: #666666;
+            --border: #2A2A2A;
+            --accent: #A8C8FF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; background: var(--bg); }
+
+        body {
+            font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            letter-spacing: -0.01em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 3l8 22h3l3-10 3 13 3-13 3 10h3l-6-22z' fill='%23fff' stroke='%23000' stroke-width='1.5'/%3E%3C/svg%3E") 3 3, auto;
+        }
+        a, button, .contact-links a, .header-links a, .footer-social a {
+            cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 3l8 22h3l3-10 3 13 3-13 3 10h3l-6-22z' fill='%23fff' stroke='%23000' stroke-width='1.5'/%3E%3C/svg%3E") 3 3, pointer;
+        }
+
+        /* ══════════════ HEADER ══════════════ */
+        .header {
+            position: sticky; top: 0; z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 18px 32px;
+            background: rgba(13,13,13,0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .header-logo {
+            font-weight: 800; font-size: 1.3rem;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            text-decoration: none;
+        }
+        .header-links {
+            display: flex; align-items: center; gap: 28px;
+        }
+        .header-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.73rem; font-weight: 500;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        .header-links a:hover { color: var(--text); }
+
+        /* ══════════════ MAIN VIDEO ══════════════ */
+        .video-section {
+            width: 100%;
+            background: #000;
+            border-bottom: 1px solid var(--border);
+        }
+        .video-layout {
+            max-width: 1280px; margin: 0 auto;
+            display: flex;
+        }
+        .video-player {
+            flex: 1; min-width: 0;
+            aspect-ratio: 16 / 9;
+            background: #000;
+        }
+        .video-player iframe {
+            width: 100%; height: 100%;
+            border: none; display: block;
+        }
+        .video-playlist {
+            width: 200px; min-width: 200px;
+            display: flex; flex-direction: column;
+            border-left: 1px solid #1A1A1A;
+        }
+        .video-playlist-item {
+            flex: 1; min-height: 0;
+            position: relative; overflow: hidden;
+            cursor: pointer;
+            border-bottom: 1px solid #1A1A1A;
+            transition: opacity 0.25s;
+        }
+        .video-playlist-item:last-child { border-bottom: none; }
+        .video-playlist-item:hover { opacity: 0.85; }
+        .video-playlist-item.active {
+            box-shadow: inset 2px 0 0 var(--accent);
+        }
+        .video-playlist-item .thumb-frame {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            border: none;
+            pointer-events: none;
+            opacity: 0.7;
+            transition: opacity 0.25s;
+        }
+        .video-playlist-item:hover .thumb-frame,
+        .video-playlist-item.active .thumb-frame { opacity: 1; }
+
+        @media (max-width: 768px) {
+            .video-layout { flex-direction: column; }
+            .video-player { aspect-ratio: 16 / 9; }
+            .video-playlist {
+                width: 100%; min-width: 0;
+                flex-direction: row; overflow-x: auto;
+                border-left: none; border-top: 1px solid #1A1A1A;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+            }
+            .video-playlist-item {
+                flex: 0 0 42vw; min-width: 140px; max-width: 200px;
+                aspect-ratio: 16 / 9;
+                border-bottom: none; border-right: 1px solid #1A1A1A;
+                scroll-snap-align: start;
+            }
+            .video-playlist-item:last-child { border-right: none; }
+            .video-playlist-item.active {
+                box-shadow: inset 0 2px 0 var(--accent);
+            }
+        }
+
+        /* ══════════════ ABOUT STRIP ══════════════ */
+        .about-strip {
+            padding: 48px 32px;
+            border-bottom: 1px solid var(--border);
+            display: flex; flex-wrap: wrap; gap: 40px;
+            max-width: 1280px; margin: 0 auto;
+        }
+        .about-strip p {
+            max-width: 640px;
+            font-size: 0.9rem; color: var(--text-dim);
+            line-height: 1.75;
+        }
+        .about-strip strong { color: var(--text); font-weight: 600; }
+
+        /* ══════════════ CONTACT ══════════════ */
+        .contact-section {
+            padding: 56px 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        .contact-inner {
+            max-width: 1280px; margin: 0 auto;
+            display: flex; flex-wrap: wrap; gap: 48px;
+            align-items: flex-start; justify-content: space-between;
+        }
+        .contact-heading {
+            font-size: 0.7rem; font-weight: 600;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--text-faint); margin-bottom: 24px;
+        }
+        .contact-links {
+            display: flex; flex-direction: column; gap: 12px;
+        }
+        .contact-links a {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--text); text-decoration: none;
+            font-size: 1.15rem; font-weight: 700;
+            letter-spacing: -0.02em;
+            transition: color 0.3s;
+        }
+        .contact-links a:hover { color: var(--accent); }
+        .contact-links a .arrow {
+            font-size: 0.9rem; color: var(--text-faint);
+            transition: transform 0.3s;
+        }
+        .contact-links a:hover .arrow { transform: translateX(4px); }
+        .contact-links .handle {
+            font-size: 0.75rem; font-weight: 400;
+            color: var(--text-faint); letter-spacing: 0.02em;
+            margin-top: -4px; margin-bottom: 8px;
+        }
+
+        .contact-qr {
+            display: flex; gap: 24px;
+        }
+        .contact-qr img, .contact-qr .qr-box {
+            width: 100px; height: 100px;
+            background: #1A1A1A;
+            border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-faint); font-size: 0.6rem;
+            text-align: center; line-height: 1.4;
+        }
+
+        /* ══════════════ FOOTER ══════════════ */
+        .footer {
+            padding: 32px;
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 16px;
+            max-width: 1280px; margin: 0 auto;
+        }
+        .footer-left {
+            font-size: 0.68rem; color: var(--text-faint);
+            letter-spacing: 0.04em;
+        }
+        .footer-social {
+            display: flex; gap: 18px;
+        }
+        .footer-social a {
+            color: var(--text-dim); text-decoration: none;
+            font-size: 0.7rem; font-weight: 500;
+            letter-spacing: 0.06em; text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        .footer-social a:hover { color: var(--text); }
+
+        /* ══════════════ RESPONSIVE ══════════════ */
+        @media (max-width: 768px) {
+            .header { padding: 14px 20px; }
+            .header-links { gap: 18px; }
+            .header-links a { font-size: 0.68rem; }
+            .about-strip { padding: 32px 20px; }
+            .contact-section { padding: 40px 20px; }
+            .contact-inner { flex-direction: column; gap: 32px; }
+            .contact-links a { font-size: 1rem; }
+            .footer { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ══════════ HEADER ══════════ -->
+    <header class="header">
+        <a href="#" class="header-logo">2ero</a>
+        <nav class="header-links">
+            <a href="https://www.instagram.com/2eroo_/" target="_blank">Instagram</a>
+            <a href="https://soundcloud.com/defen-waste" target="_blank">SoundCloud</a>
+            <a href="https://linktr.ee/2ero" target="_blank">Linktree</a>
+        </nav>
+    </header>
+
+    <!-- ══════════ VIDEO ══════════ -->
+    <section class="video-section">
+        <div class="video-layout">
+            <div class="video-player" id="videoPlayer">
+                <iframe src="https://player.bilibili.com/player.html?bvid=BV1CBYSzjEKq&page=1&high_quality=1" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-playlist" id="videoPlaylist">
+                <div class="video-playlist-item active" data-src="https://player.bilibili.com/player.html?bvid=BV1CBYSzjEKq&page=1&high_quality=1">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1CBYSzjEKq&page=1&autoplay=0" class="thumb-frame" scrolling="no" allowfullscreen></iframe>
+                </div>
+                <div class="video-playlist-item" data-src="https://player.bilibili.com/player.html?bvid=BV1bhZHB9EB4&page=1&high_quality=1">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1bhZHB9EB4&page=1&autoplay=0" class="thumb-frame" scrolling="no" allowfullscreen></iframe>
+                </div>
+                <div class="video-playlist-item" data-src="https://player.bilibili.com/player.html?bvid=BV1G37v6eE1t&page=1&high_quality=1">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1G37v6eE1t&page=1&autoplay=0" class="thumb-frame" scrolling="no" allowfullscreen></iframe>
+                </div>
+                <div class="video-playlist-item" data-src="https://player.bilibili.com/player.html?bvid=BV1MpZ4BvEWR&page=1&high_quality=1">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1MpZ4BvEWR&page=1&autoplay=0" class="thumb-frame" scrolling="no" allowfullscreen></iframe>
+                </div>
+                <div class="video-playlist-item" data-src="https://player.bilibili.com/player.html?bvid=BV1BqraYAEwN&page=1&high_quality=1">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1BqraYAEwN&page=1&autoplay=0" class="thumb-frame" scrolling="no" allowfullscreen></iframe>
+                </div>
+                <div class="video-playlist-item" data-src="https://player.bilibili.com/player.html?bvid=BV1q5X2YeECx&page=1&high_quality=1">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1q5X2YeECx&page=1&autoplay=0" class="thumb-frame" scrolling="no" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ ABOUT ══════════ -->
+    <section class="about-strip">
+        <div style="display:flex;flex-direction:column;gap:16px;max-width:720px;">
+            <p>
+                自幼学习小提琴，电子音乐让 <strong>2ero</strong> 重新建立了对<strong>声音、空间与感知</strong>的理解。他的音乐实践根植于 Leftfield Electronic Music、Bass Culture 与 Experimental Club Sounds，在 <strong>Techno、Bass Music、IDM、Dub 与 Ambient</strong> 之间自由游走。作为 <strong>OFlowers</strong> 与 <strong>OFlowers Surfskate Club</strong> 的创始人，他长期致力于推动运动文化、电子音乐与青年社群之间的融合发展。
+            </p>
+            <p style="color:var(--text-faint);font-size:0.82rem;">
+                Raised through years of classical violin training, 2ero discovered electronic music as a way to reshape his understanding of sound, space and perception. His sound is rooted in Leftfield Electronic Music, Bass Culture and Experimental Club Sounds, moving freely between Techno, Bass Music, IDM, Dub and Ambient. As the founder of OFlowers and OFlowers Surfskate Club, he focuses on connecting movement, music and contemporary youth culture through community-driven projects and events.
+            </p>
+        </div>
+    </section>
+
+    <!-- ══════════ CONTACT ══════════ -->
+    <section class="contact-section">
+        <div class="contact-inner">
+            <div>
+                <div class="contact-heading">Connect</div>
+                <div class="contact-links">
+                    <a href="https://www.instagram.com/2eroo_/" target="_blank">
+                        Instagram <span class="arrow">↗</span>
+                    </a>
+                    <div class="handle">@2eroo_</div>
+
+                    <a href="https://soundcloud.com/defen-waste" target="_blank">
+                        SoundCloud <span class="arrow">↗</span>
+                    </a>
+                    <div class="handle">soundcloud.com/defen-waste</div>
+
+                    <a href="https://linktr.ee/2ero" target="_blank">
+                        Linktree <span class="arrow">↗</span>
+                    </a>
+                    <div class="handle">All platforms & links</div>
+
+                    <a href="https://space.bilibili.com/353791121?spm_id_from=333.33.0.0" target="_blank">
+                        Bilibili <span class="arrow">↗</span>
+                    </a>
+                    <div class="handle">Bilibili Space</div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="contact-heading">WeChat</div>
+                <div class="contact-qr">
+                    <div>
+                        <img src="qr-wechat.jpg" width="100" height="100" alt="WeChat QR" style="display:block;border:1px solid var(--border);object-fit:cover;">
+                        <div style="font-size:0.6rem;color:var(--text-faint);text-align:center;margin-top:6px;">WeChat</div>
+                    </div>
+                    <div>
+                        <img src="qr-xiaohongshu.jpg" width="100" height="100" alt="XHS QR" style="display:block;border:1px solid var(--border);object-fit:cover;">
+                        <div style="font-size:0.6rem;color:var(--text-faint);text-align:center;margin-top:6px;">Xiaohongshu</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ FOOTER ══════════ -->
+    <footer class="footer">
+        <span class="footer-left">© 2026 2ero — OFlowers</span>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/2eroo_/" target="_blank">IG</a>
+            <a href="https://soundcloud.com/defen-waste" target="_blank">SC</a>
+            <a href="https://linktr.ee/2ero" target="_blank">Links</a>
+            <a href="mailto:2ero@example.com">Email</a>
+        </div>
+    </footer>
+
+<script>
+    // ── Video playlist switcher ──
+    const player = document.getElementById('videoPlayer');
+    const items = document.querySelectorAll('.video-playlist-item');
+
+    items.forEach(item => {
+        item.addEventListener('click', () => {
+            const src = item.getAttribute('data-src');
+            player.innerHTML = `<iframe src="${src}" allowfullscreen loading="lazy"></iframe>`;
+            items.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+        });
+    });
+</script>
+</body>
+</html>
