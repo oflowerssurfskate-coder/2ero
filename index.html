@@ -26,36 +26,14 @@
              font-size: 0.95rem;
          }
          .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
- 
-         .header {
-             padding: 32px 0;
-             display: flex; justify-content: space-between; align-items: center;
-             border-bottom: 1px solid var(--border);
-         }
-         .header-logo {
-             font-size: 1.3rem; font-weight: 400;
-             letter-spacing: 0.12em; text-decoration: none; color: var(--text);
-         }
+         .header { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+         .header-logo { font-size: 1.3rem; font-weight: 400; letter-spacing: 0.12em; text-decoration: none; color: var(--text); }
          .header-links { display: flex; gap: 36px; }
-         .header-links a {
-             color: var(--text-dim); text-decoration: none;
-             font-size: 0.75rem; letter-spacing: 0.1em; font-weight: 400;
-             transition: color 0.3s;
-         }
+         .header-links a { color: var(--text-dim); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; font-weight: 400; transition: color 0.3s; }
          .header-links a:hover { color: var(--text); }
- 
-         .main-title {
-             padding: 80px 0 40px; text-align: center;
-         }
-         .main-title h1 {
-             font-size: 3.6rem; font-weight: 400;
-             letter-spacing: -0.02em; line-height: 1.1;
-         }
-         .main-title p {
-             font-size: 0.85rem; color: var(--text-dim); margin-top: 16px;
-             letter-spacing: 0.08em; font-weight: 300;
-         }
- 
+         .main-title { padding: 80px 0 40px; text-align: center; }
+         .main-title h1 { font-size: 3.6rem; font-weight: 400; letter-spacing: -0.02em; line-height: 1.1; }
+         .main-title p { font-size: 0.85rem; color: var(--text-dim); margin-top: 16px; letter-spacing: 0.08em; font-weight: 300; }
          .video-section { padding: 40px 0 80px; }
          .video-layout { display: flex; gap: 12px; }
          .video-main { flex: 1; aspect-ratio: 16/9; background: #E8E8E0; }
@@ -63,50 +41,29 @@
          .video-sidebar { width: 260px; display: flex; flex-direction: column; gap: 1px; background: var(--border); }
          .video-thumb { flex: 1; position: relative; cursor: pointer; overflow: hidden; min-height: 0; }
          .video-thumb iframe { width: 100%; height: 100%; border: none; pointer-events: none; }
-         .video-thumb .thumb-overlay {
-             position: absolute; inset: 0;
-             display: flex; align-items: center; justify-content: center;
-             opacity: 0; transition: opacity 0.3s;
-             font-size: 1.5rem; color: white;
-             text-shadow: 0 0 20px rgba(0,0,0,0.5);
-         }
+         .video-thumb .thumb-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; font-size: 1.5rem; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.5); }
          .video-thumb:hover .thumb-overlay { opacity: 1; }
          .video-thumb.active { border-left: 2px solid var(--text); }
- 
          .intro { padding: 0 0 80px; max-width: 680px; margin: 0 auto; }
          .intro p { font-size: 0.95rem; margin-bottom: 28px; color: var(--text-dim); line-height: 2.2; }
          .intro strong { color: var(--text); font-weight: 500; }
          .intro .en { font-size: 0.85rem; color: var(--text-faint); line-height: 2; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
- 
          .contact { padding: 60px 0; border-top: 1px solid var(--border); }
          .contact-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; }
          .contact-links { display: flex; flex-direction: column; gap: 4px; }
-         .contact-links a {
-             color: var(--text); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em;
-             transition: opacity 0.3s; display: inline-flex; align-items: center; gap: 6px; font-weight: 400;
-         }
+         .contact-links a { color: var(--text); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em; transition: opacity 0.3s; display: inline-flex; align-items: center; gap: 6px; font-weight: 400; }
          .contact-links a:hover { opacity: 0.5; }
          .contact-links .handle { font-size: 0.7rem; color: var(--text-faint); margin-bottom: 16px; }
          .contact-qr { display: flex; gap: 20px; }
          .contact-qr-item { text-align: center; }
          .contact-qr-item img { width: 110px; height: 110px; border: 1px solid var(--border); display: block; margin-bottom: 6px; }
          .contact-qr-item span { font-size: 0.65rem; color: var(--text-faint); letter-spacing: 0.06em; }
- 
          .footer { padding: 40px 0 60px; text-align: center; font-size: 0.7rem; color: var(--text-faint); }
          .footer a { color: var(--text); text-decoration: none; }
- 
-         @media (max-width: 768px) {
-             .container { padding: 0 24px; }
-             .main-title h1 { font-size: 2.4rem; }
-             .video-layout { flex-direction: column; }
-             .video-sidebar { width: 100%; flex-direction: row; height: 80px; gap: 2px; }
-             .header-links { gap: 20px; }
-             .contact-row { flex-direction: column; }
-         }
+         @media (max-width: 768px) { .container { padding: 0 24px; } .main-title h1 { font-size: 2.4rem; } .video-layout { flex-direction: column; } .video-sidebar { width: 100%; flex-direction: row; height: 80px; gap: 2px; } .header-links { gap: 20px; } .contact-row { flex-direction: column; } }
      </style>
  </head>
  <body>
- 
  <div class="container">
      <header class="header">
          <a href="#" class="header-logo">2ero</a>
@@ -116,12 +73,10 @@
              <a href="https://linktr.ee/2ero" target="_blank">Linktree</a>
          </div>
      </header>
- 
      <section class="main-title">
          <h1>2ero</h1>
          <p>DJ / producer, founder of OFlowers &amp; OFlowers Surfskate Club</p>
      </section>
- 
      <section class="video-section">
          <div class="video-layout">
              <div class="video-main" id="playerContainer">
@@ -130,57 +85,47 @@
              <div class="video-sidebar" id="playlist">
                  <div class="video-thumb active" data-src="https://player.bilibili.com/player.html?bvid=BV1CBYSzjEKq&page=1&high_quality=1">
                      <iframe src="https://player.bilibili.com/player.html?bvid=BV1CBYSzjEKq&page=1&high_quality=1" loading="lazy"></iframe>
-                     <div class="thumb-overlay">▶</div>
+                     <div class="thumb-overlay">&#9654;</div>
                  </div>
                  <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1bhZHB9EB4&page=1&high_quality=1">
                      <iframe src="https://player.bilibili.com/player.html?bvid=BV1bhZHB9EB4&page=1&high_quality=1" loading="lazy"></iframe>
-                     <div class="thumb-overlay">▶</div>
+                     <div class="thumb-overlay">&#9654;</div>
                  </div>
                  <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1G37v6eE1t&page=1&high_quality=1">
                      <iframe src="https://player.bilibili.com/player.html?bvid=BV1G37v6eE1t&page=1&high_quality=1" loading="lazy"></iframe>
-                     <div class="thumb-overlay">▶</div>
+                     <div class="thumb-overlay">&#9654;</div>
                  </div>
                  <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1MpZ4BvEWR&page=1&high_quality=1">
                      <iframe src="https://player.bilibili.com/player.html?bvid=BV1MpZ4BvEWR&page=1&high_quality=1" loading="lazy"></iframe>
-                     <div class="thumb-overlay">▶</div>
+                     <div class="thumb-overlay">&#9654;</div>
                  </div>
                  <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1BqraYAEwN&page=1&high_quality=1">
                      <iframe src="https://player.bilibili.com/player.html?bvid=BV1BqraYAEwN&page=1&high_quality=1" loading="lazy"></iframe>
-                     <div class="thumb-overlay">▶</div>
+                     <div class="thumb-overlay">&#9654;</div>
                  </div>
                  <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1q5X2YeECx&page=1&high_quality=1">
                      <iframe src="https://player.bilibili.com/player.html?bvid=BV1q5X2YeECx&page=1&high_quality=1" loading="lazy"></iframe>
-                     <div class="thumb-overlay">▶</div>
+                     <div class="thumb-overlay">&#9654;</div>
                  </div>
              </div>
          </div>
      </section>
- 
      <section class="intro">
-         <p>
-             <strong>2ero</strong> 自幼学习小提琴，古典训练的根基让他对声音有着敏锐的感知。而电子音乐的出现，让他重新建立了对<strong>声音、空间与感知</strong>的理解。
-         </p>
-         <p>
-             他的音乐实践根植于 Leftfield Electronic Music、Bass Culture 与 Experimental Club Sounds，在 <strong>Techno、Bass Music、IDM、Dub 与 Ambient</strong> 之间自由游走。
-         </p>
-         <p>
-             作为 <strong>OFlowers</strong> 与 <strong>OFlowers Surfskate Club</strong> 的创始人，他长期致力于推动<strong>运动文化、电子音乐与青年社群</strong>之间的融合发展。
-         </p>
-         <div class="en">
-             Raised through years of classical violin training, 2ero discovered electronic music as a way to reshape his understanding of sound, space and perception. His practice draws from Leftfield Electronic Music, Bass Culture and Experimental Club Sounds — moving freely between Techno, Bass Music, IDM, Dub and Ambient. As the founder of OFlowers and OFlowers Surfskate Club, he focuses on connecting movement, music and contemporary youth culture through community-driven projects and events.
-         </div>
+         <p><strong>2ero</strong> &#x81ea;&#x5e7c;&#x5b66;&#x4e60;&#x5c0f;&#x63d0;&#x7434;&#xff0c;&#x53e4;&#x5178;&#x8bad;&#x7ec3;&#x7684;&#x6839;&#x57fa;&#x8ba9;&#x4ed6;&#x5bf9;&#x58f0;&#x97f3;&#x6709;&#x7740;&#x654f;&#x9510;&#x7684;&#x611f;&#x77e5;&#x3002;&#x800c;&#x7535;&#x5b50;&#x97f3;&#x4e50;&#x7684;&#x51fa;&#x73b0;&#xff0c;&#x8ba9;&#x4ed6;&#x91cd;&#x65b0;&#x5efa;&#x7acb;&#x4e86;&#x5bf9;<strong>&#x58f0;&#x97f3;&#x3001;&#x7a7a;&#x95f4;&#x4e0e;&#x611f;&#x77e5;</strong>&#x7684;&#x7406;&#x89e3;&#x3002;</p>
+         <p>&#x4ed6;&#x7684;&#x97f3;&#x4e50;&#x5b9e;&#x8df5;&#x6839;&#x690d;&#x4e8e; Leftfield Electronic Music&#x3001;Bass Culture &#x4e0e; Experimental Club Sounds&#xff0c;&#x5728; <strong>Techno&#x3001;Bass Music&#x3001;IDM&#x3001;Dub &#x4e0e; Ambient</strong> &#x4e4b;&#x95f4;&#x81ea;&#x7531;&#x6e38;&#x8d70;&#x3002;</p>
+         <p>&#x4f5c;&#x4e3a; <strong>OFlowers</strong> &#x4e0e; <strong>OFlowers Surfskate Club</strong> &#x7684;&#x521b;&#x59cb;&#x4eba;&#xff0c;&#x4ed6;&#x957f;&#x671f;&#x81f4;&#x529b;&#x4e8e;&#x63a8;&#x52a8;<strong>&#x8fd0;&#x52a8;&#x6587;&#x5316;&#x3001;&#x7535;&#x5b50;&#x97f3;&#x4e50;&#x4e0e;&#x9752;&#x5e74;&#x793e;&#x7fa4;</strong>&#x4e4b;&#x95f4;&#x7684;&#x878d;&#x5408;&#x53d1;&#x5c55;&#x3002;</p>
+         <div class="en">Raised through years of classical violin training, 2ero discovered electronic music as a way to reshape his understanding of sound, space and perception. His practice draws from Leftfield Electronic Music, Bass Culture and Experimental Club Sounds — moving freely between Techno, Bass Music, IDM, Dub and Ambient. As the founder of OFlowers and OFlowers Surfskate Club, he focuses on connecting movement, music and contemporary youth culture through community-driven projects and events.</div>
      </section>
- 
      <section class="contact">
          <div class="contact-row">
              <div class="contact-links">
-                 <a href="https://www.instagram.com/2eroo_/" target="_blank">Instagram ↗</a>
+                 <a href="https://www.instagram.com/2eroo_/" target="_blank">Instagram &#8599;</a>
                  <div class="handle">@2eroo_</div>
-                 <a href="https://soundcloud.com/defen-waste" target="_blank">SoundCloud ↗</a>
+                 <a href="https://soundcloud.com/defen-waste" target="_blank">SoundCloud &#8599;</a>
                  <div class="handle">soundcloud.com/defen-waste</div>
-                 <a href="https://linktr.ee/2ero" target="_blank">Linktree ↗</a>
+                 <a href="https://linktr.ee/2ero" target="_blank">Linktree &#8599;</a>
                  <div class="handle">All platforms &amp; links</div>
-                 <a href="https://space.bilibili.com/353791121" target="_blank">Bilibili ↗</a>
+                 <a href="https://space.bilibili.com/353791121" target="_blank">Bilibili &#8599;</a>
                  <div class="handle">Bilibili Space</div>
              </div>
              <div class="contact-qr">
@@ -189,18 +134,16 @@
                      <span>WeChat</span>
                  </div>
                  <div class="contact-qr-item">
-                     <img src="qr-xiaohongshu.jpg" alt="小红书">
-                     <span>小红书</span>
+                     <img src="qr-xiaohongshu.jpg" alt="&#x5c0f;&#x7ea2;&#x4e66;">
+                     <span>&#x5c0f;&#x7ea2;&#x4e66;</span>
                  </div>
              </div>
          </div>
      </section>
  </div>
- 
  <footer class="footer">
-     <p>© 2026 2ero · <a href="https://www.instagram.com/2eroo_/" target="_blank">Instagram</a> · <a href="https://soundcloud.com/defen-waste" target="_blank">SoundCloud</a> · <a href="https://space.bilibili.com/353791121" target="_blank">Bilibili</a></p>
+     <p>&#x00a9; 2026 2ero &#x00b7; <a href="https://www.instagram.com/2eroo_/" target="_blank">Instagram</a> &#x00b7; <a href="https://soundcloud.com/defen-waste" target="_blank">SoundCloud</a> &#x00b7; <a href="https://space.bilibili.com/353791121" target="_blank">Bilibili</a></p>
  </footer>
- 
  <script>
      const player = document.getElementById('mainPlayer');
      const thumbs = document.querySelectorAll('.video-thumb');
@@ -212,6 +155,5 @@
          });
      });
  </script>
- 
  </body>
  </html>
