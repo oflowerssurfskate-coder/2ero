@@ -1,173 +1,153 @@
-﻿ <!DOCTYPE html>
- <html lang="zh-CN">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>2ero | DJ & OFlowers</title>
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <style>
-         :root {
-             --bg: #F8F8F4;
-             --text: #1A1A1A;
-             --text-dim: #666666;
-             --text-faint: #999999;
-             --border: #E0E0D8;
-         }
-         * { margin: 0; padding: 0; box-sizing: border-box; }
-         html { scroll-behavior: smooth; }
-         body {
-             font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
-             font-weight: 300;
-             background: var(--bg);
-             color: var(--text);
-             line-height: 2;
-             letter-spacing: 0.04em;
-             font-size: 0.95rem;
-         }
-         .container { max-width: 1800px; margin: 0 auto; padding: 0 48px; }
-         .header { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
-         .header-logo { font-size: 1.3rem; font-weight: 400; letter-spacing: 0.12em; text-decoration: none; color: var(--text); }
-         .header-links { display: flex; gap: 36px; }
-         .header-links a { color: var(--text-dim); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; font-weight: 400; transition: color 0.3s; }
-         .header-links a:hover { color: var(--text); }
- 
-         .video-section { padding: 40px 0 80px; }
-         .video-layout { display: flex; gap: 12px; }
-         .video-main { flex: 1; aspect-ratio: 16/9; background: #E8E8E0; }
-         .video-main iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
-         .video-sidebar { width: 260px; display: flex; flex-direction: column; background: var(--border); }
-         .video-thumb { flex: 1; position: relative; cursor: pointer; overflow: hidden; background: var(--bg); border-bottom: 1px solid var(--border); }
-         .video-thumb:last-child { border-bottom: none; }
-         .video-thumb iframe { width: 100%; height: 100%; border: none; pointer-events: none; display: block; }
-         .video-thumb .thumb-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; font-size: 1.5rem; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.5); }
-         .video-thumb:hover .thumb-overlay { opacity: 1; }
-         .video-thumb.active { border-left: 2px solid var(--text); }
-         .intro { padding: 0 0 80px; max-width: 680px; margin: 0 auto; }
-         .intro p { font-size: 0.95rem; margin-bottom: 28px; color: var(--text-dim); line-height: 2.2; }
-         .intro strong { color: var(--text); font-weight: 500; }
-         .intro .en { font-size: 0.85rem; color: var(--text-faint); line-height: 2; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
-         .contact { padding: 60px 0; border-top: 1px solid var(--border); }
-         .contact-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; }
-         .contact-links { display: flex; flex-direction: column; gap: 4px; }
-         .contact-links a { color: var(--text); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em; transition: opacity 0.3s; display: inline-flex; align-items: center; gap: 6px; font-weight: 400; }
-         .contact-links a:hover { opacity: 0.5; }
-         .contact-links .handle { font-size: 0.7rem; color: var(--text-faint); margin-bottom: 16px; }
-         .contact-qr { display: flex; gap: 20px; }
-         .contact-qr-item { text-align: center; }
-         .contact-qr-item img { width: 110px; height: 110px; border: 1px solid var(--border); display: block; margin-bottom: 6px; }
-         .contact-qr-item span { font-size: 0.65rem; color: var(--text-faint); letter-spacing: 0.06em; }
-         .footer { padding: 40px 0 60px; text-align: center; font-size: 0.7rem; color: var(--text-faint); }
-         .footer a { color: var(--text); text-decoration: none; }
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2ero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F8F8F4;
+            --text: #1A1A1A;
+            --text-dim: #666666;
+            --text-faint: #999999;
+            --border: #E0E0D8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+            font-weight: 300;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 2;
+            letter-spacing: 0.04em;
+            font-size: 0.95rem;
+        }
+        .container { max-width: 1800px; margin: 0 auto; padding: 0 48px; }
+        .header { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+        .header-logo { font-size: 1.3rem; font-weight: 400; letter-spacing: 0.12em; text-decoration: none; color: var(--text); }
+        .header-links { display: flex; gap: 36px; }
+        .header-links a { color: var(--text-dim); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; font-weight: 400; transition: color 0.3s; }
+        .header-links a:hover { color: var(--text); }
+        .video-section { padding: 40px 0 80px; }
+        .video-layout { display: flex; gap: 12px; }
+        .video-main { flex: 1; aspect-ratio: 16/9; background: #E8E8E0; }
+        .video-main iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+        .video-sidebar { width: 260px; display: flex; flex-direction: column; background: var(--border); }
+        .video-thumb { flex: 1; position: relative; cursor: pointer; overflow: hidden; background: var(--bg); border-bottom: 1px solid var(--border); }
+        .video-thumb:last-child { border-bottom: none; }
+        .video-thumb iframe { width: 100%; height: 100%; border: none; pointer-events: none; display: block; }
+        .video-thumb .thumb-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; font-size: 1.5rem; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        .video-thumb:hover .thumb-overlay { opacity: 1; }
+        .video-thumb.active { border-left: 2px solid var(--text); }
+        .intro { padding: 0 0 80px; max-width: 680px; margin: 0 auto; }
+        .intro p { font-size: 0.95rem; margin-bottom: 28px; color: var(--text-dim); line-height: 2.2; }
+        .intro strong { color: var(--text); font-weight: 500; }
+        .intro .en { font-size: 0.85rem; color: var(--text-faint); line-height: 2; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
+        .contact { padding: 60px 0; border-top: 1px solid var(--border); }
+        .contact-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; }
+        .contact-links { display: flex; flex-direction: column; gap: 4px; }
+        .contact-links a { color: var(--text); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em; transition: opacity 0.3s; display: inline-flex; align-items: center; gap: 6px; font-weight: 400; }
+        .contact-links a:hover { opacity: 0.5; }
+        .contact-links .handle { font-size: 0.7rem; color: var(--text-faint); margin-bottom: 16px; }
+        .contact-qr { display: flex; gap: 20px; }
+        .contact-qr-item { text-align: center; }
+        .contact-qr-item img { width: 110px; height: 110px; border: 1px solid var(--border); display: block; margin-bottom: 6px; }
+        .contact-qr-item span { font-size: 0.65rem; color: var(--text-faint); letter-spacing: 0.06em; }
+        .footer { padding: 40px 0 60px; text-align: center; font-size: 0.7rem; color: var(--text-faint); }
+        .footer a { color: var(--text); text-decoration: none; }
+    </style>
+</head>
+<body>
 <div class="container">
-     <header class="header">
-     </style>
- </head>
- <body>
- <div class="container">`r`n<header class="header">
- <div class="container">
-     <header class="header">
-         <div class="header-links">
-             <a href="https://www.instagram.com/2eroo_/" target="_blank">Instagram</a>
-             <a href="https://soundcloud.com/defen-waste" target="_blank">SoundCloud</a>
-             <a href="https://linktr.ee/2ero" target="_blank">Linktree</a>
-         </div>
- </header>
- 
- 
-     <section class="video-section">
-         <div class="video-layout">
-             <div class="video-main" id="playerContainer">
-                 <iframe id="mainPlayer" src="https://player.bilibili.com/player.html?bvid=BV1CBYSzjEKq&page=1&high_quality=1" allowfullscreen loading="lazy"></iframe>
-             </div>
-             <div class="video-sidebar" id="playlist">
-                 <div class="video-thumb active" data-src="https://player.bilibili.com/player.html?bvid=BV1CBYSzjEKq&page=1&high_quality=1">
-                     <iframe src="https://player.bilibili.com/player.html?bvid=BV1CBYSzjEKq&page=1&high_quality=1" loading="lazy"></iframe>
-                     <div class="thumb-overlay">&#9654;</div>
-                 </div>
-                 <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1bhZHB9EB4&page=1&high_quality=1">
-                     <iframe src="https://player.bilibili.com/player.html?bvid=BV1bhZHB9EB4&page=1&high_quality=1" loading="lazy"></iframe>
-                     <div class="thumb-overlay">&#9654;</div>
-                 </div>
-                 <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1G37v6eE1t&page=1&high_quality=1">
-                     <iframe src="https://player.bilibili.com/player.html?bvid=BV1G37v6eE1t&page=1&high_quality=1" loading="lazy"></iframe>
-                     <div class="thumb-overlay">&#9654;</div>
-                 </div>
-                 <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1MpZ4BvEWR&page=1&high_quality=1">
-                     <iframe src="https://player.bilibili.com/player.html?bvid=BV1MpZ4BvEWR&page=1&high_quality=1" loading="lazy"></iframe>
-                     <div class="thumb-overlay">&#9654;</div>
-                 </div>
-                 <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1BqraYAEwN&page=1&high_quality=1">
-                     <iframe src="https://player.bilibili.com/player.html?bvid=BV1BqraYAEwN&page=1&high_quality=1" loading="lazy"></iframe>
-                     <div class="thumb-overlay">&#9654;</div>
-                 </div>
-                 <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1q5X2YeECx&page=1&high_quality=1">
-                     <iframe src="https://player.bilibili.com/player.html?bvid=BV1q5X2YeECx&page=1&high_quality=1" loading="lazy"></iframe>
-                     <div class="thumb-overlay">&#9654;</div>
-                 </div>
-             </div>
-         </div>
-     </section>
-     <section class="intro">
-         <p><strong>2ero</strong> &#x81ea;&#x5e7c;&#x5b66;&#x4e60;&#x5c0f;&#x63d0;&#x7434;&#xff0c;&#x53e4;&#x5178;&#x8bad;&#x7ec3;&#x7684;&#x6839;&#x57fa;&#x8ba9;&#x4ed6;&#x5bf9;&#x58f0;&#x97f3;&#x6709;&#x7740;&#x654f;&#x9510;&#x7684;&#x611f;&#x77e5;&#x3002;&#x800c;&#x7535;&#x5b50;&#x97f3;&#x4e50;&#x7684;&#x51fa;&#x73b0;&#xff0c;&#x8ba9;&#x4ed6;&#x91cd;&#x65b0;&#x5efa;&#x7acb;&#x4e86;&#x5bf9;<strong>&#x58f0;&#x97f3;&#x3001;&#x7a7a;&#x95f4;&#x4e0e;&#x611f;&#x77e5;</strong>&#x7684;&#x7406;&#x89e3;&#x3002;</p>
-         <p>&#x4ed6;&#x7684;&#x97f3;&#x4e50;&#x5b9e;&#x8df5;&#x6839;&#x690d;&#x4e8e; Leftfield Electronic Music&#x3001;Bass Culture &#x4e0e; Experimental Club Sounds&#xff0c;&#x5728; <strong>Techno&#x3001;Bass Music&#x3001;IDM&#x3001;Dub &#x4e0e; Ambient</strong> &#x4e4b;&#x95f4;&#x81ea;&#x7531;&#x6e38;&#x8d70;&#x3002;</p>
-         <p>&#x4f5c;&#x4e3a; <strong>OFlowers</strong> &#x4e0e; <strong>OFlowers Surfskate Club</strong> &#x7684;&#x521b;&#x59cb;&#x4eba;&#xff0c;&#x4ed6;&#x957f;&#x671f;&#x81f4;&#x529b;&#x4e8e;&#x63a8;&#x52a8;<strong>&#x8fd0;&#x52a8;&#x6587;&#x5316;&#x3001;&#x7535;&#x5b50;&#x97f3;&#x4e50;&#x4e0e;&#x9752;&#x5e74;&#x793e;&#x7fa4;</strong>&#x4e4b;&#x95f4;&#x7684;&#x878d;&#x5408;&#x53d1;&#x5c55;&#x3002;</p>
-         <div class="en">Raised through years of classical violin training, 2ero discovered electronic music as a way to reshape his understanding of sound, space and perception. His practice draws from Leftfield Electronic Music, Bass Culture and Experimental Club Sounds 鈥?moving freely between Techno, Bass Music, IDM, Dub and Ambient. As the founder of OFlowers and OFlowers Surfskate Club, he focuses on connecting movement, music and contemporary youth culture through community-driven projects and events.</div>
-     </section>
-     <section class="contact">
-         <div class="contact-row">
-             <div class="contact-links">
-                 <a href="https://www.instagram.com/2eroo_/" target="_blank">Instagram &#8599;</a>
-                 <div class="handle">@2eroo_</div>
-                 <a href="https://soundcloud.com/defen-waste" target="_blank">SoundCloud &#8599;</a>
-                 <div class="handle">soundcloud.com/defen-waste</div>
-                 <a href="https://linktr.ee/2ero" target="_blank">Linktree &#8599;</a>
-                 <div class="handle">All platforms &amp; links</div>
-                 <a href="https://space.bilibili.com/353791121" target="_blank">Bilibili &#8599;</a>
-                 <div class="handle">Bilibili Space</div>
-             </div>
-             <div class="contact-qr">
-                 <div class="contact-qr-item">
-                     <img src="qr-wechat.jpg" alt="WeChat">
-                     <span>WeChat</span>
-                 </div>
-                 <div class="contact-qr-item">
-                     <img src="qr-xiaohongshu.jpg" alt="&#x5c0f;&#x7ea2;&#x4e66;">
-                     <span>&#x5c0f;&#x7ea2;&#x4e66;</span>
-                 </div>
-             </div>
-         </div>
-     </section>
- </div>
- <footer class="footer">
-     <p>&#x00a9; 2026 2ero &#x00b7; <a href="https://www.instagram.com/2eroo_/" target="_blank">Instagram</a> &#x00b7; <a href="https://soundcloud.com/defen-waste" target="_blank">SoundCloud</a> &#x00b7; <a href="https://space.bilibili.com/353791121" target="_blank">Bilibili</a></p>
- </footer>
- <script>
-     const player = document.getElementById('mainPlayer');
-     const thumbs = document.querySelectorAll('.video-thumb');
-     thumbs.forEach(el => {
-         el.addEventListener('click', () => {
-             thumbs.forEach(t => t.classList.remove('active'));
-             el.classList.add('active');
-             player.src = el.dataset.src;
-         });
-     });
- </script>
- </body>
- </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <header class="header">
+        <a href="/" class="header-logo">2ero</a>
+        <div class="header-links">
+            <a href="https://www.instagram.com/2eroo_/" target="_blank">Instagram</a>
+            <a href="https://soundcloud.com/defen-waste" target="_blank">SoundCloud</a>
+            <a href="https://linktr.ee/2ero" target="_blank">Linktree</a>
+        </div>
+    </header>
+    <section class="video-section">
+        <div class="video-layout">
+            <div class="video-main" id="playerContainer">
+                <iframe id="mainPlayer" src="https://player.bilibili.com/player.html?bvid=BV1CBYSzjEKq&page=1&high_quality=1" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-sidebar" id="playlist">
+                <div class="video-thumb active" data-src="https://player.bilibili.com/player.html?bvid=BV1CBYSzjEKq&page=1&high_quality=1">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1CBYSzjEKq&page=1&high_quality=1" loading="lazy"></iframe>
+                    <div class="thumb-overlay">&#9654;</div>
+                </div>
+                <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1bhZHB9EB4&page=1&high_quality=1">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1bhZHB9EB4&page=1&high_quality=1" loading="lazy"></iframe>
+                    <div class="thumb-overlay">&#9654;</div>
+                </div>
+                <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1G37v6eE1t&page=1&high_quality=1">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1G37v6eE1t&page=1&high_quality=1" loading="lazy"></iframe>
+                    <div class="thumb-overlay">&#9654;</div>
+                </div>
+                <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1MpZ4BvEWR&page=1&high_quality=1">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1MpZ4BvEWR&page=1&high_quality=1" loading="lazy"></iframe>
+                    <div class="thumb-overlay">&#9654;</div>
+                </div>
+                <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1BqraYAEwN&page=1&high_quality=1">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1BqraYAEwN&page=1&high_quality=1" loading="lazy"></iframe>
+                    <div class="thumb-overlay">&#9654;</div>
+                </div>
+                <div class="video-thumb" data-src="https://player.bilibili.com/player.html?bvid=BV1q5X2YeECx&page=1&high_quality=1">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1q5X2YeECx&page=1&high_quality=1" loading="lazy"></iframe>
+                    <div class="thumb-overlay">&#9654;</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="intro">
+        <p><strong>2ero</strong> &#x81ea;&#x5e7c;&#x5b66;&#x4e60;&#x5c0f;&#x63d0;&#x7434;&#xff0c;&#x7535;&#x5b50;&#x97f3;&#x4e50;&#x8ba9;&#x4ed6;&#x91cd;&#x65b0;&#x5efa;&#x7acb;&#x4e86;&#x5bf9;&#x58f0;&#x97f3;&#x3001;&#x7a7a;&#x95f4;&#x4e0e;&#x611f;&#x77e5;&#x7684;&#x7406;&#x89e3;&#x3002;</p>
+        <p>&#x4ed6;&#x7684;&#x97f3;&#x4e50;&#x5b9e;&#x8df5;&#x6839;&#x690d;&#x4e8e; Leftfield Electronic Music&#x3001;Bass Culture &#x4e0e; Experimental Club Sounds&#xff0c;&#x5728; <strong>Techno&#x3001;Bass Music&#x3001;IDM&#x3001;Dub &#x4e0e; Ambient</strong> &#x4e4b;&#x95f4;&#x81ea;&#x7531;&#x6e38;&#x8d70;&#x3002;</p>
+        <p>&#x4f5c;&#x4e3a; <strong>OFlowers</strong> &#x4e0e; <strong>OFlowers Surfskate Club</strong> &#x7684;&#x521b;&#x59cb;&#x4eba;&#xff0c;&#x4ed6;&#x957f;&#x671f;&#x81f4;&#x529b;&#x4e8e;&#x63a8;&#x52a8;&#x8fd0;&#x52a8;&#x6587;&#x5316;&#x3001;&#x7535;&#x5b50;&#x97f3;&#x4e50;&#x4e0e;&#x9752;&#x5e74;&#x793e;&#x7fa4;&#x4e4b;&#x95f4;&#x7684;&#x878d;&#x5408;&#x53d1;&#x5c55;&#x3002;</p>
+        <div class="en">Raised through years of classical violin training, 2ero discovered electronic music as a way to reshape his understanding of sound, space and perception. His practice draws from Leftfield Electronic Music, Bass Culture and Experimental Club Sounds &#x2014; moving freely between Techno, Bass Music, IDM, Dub and Ambient. As the founder of OFlowers and OFlowers Surfskate Club, he focuses on connecting movement, music and contemporary youth culture through community-driven projects and events.</div>
+    </section>
+    <section class="contact">
+        <div class="contact-row">
+            <div class="contact-links">
+                <a href="https://www.instagram.com/2eroo_/" target="_blank">Instagram &#8599;</a>
+                <div class="handle">@2eroo_</div>
+                <a href="https://soundcloud.com/defen-waste" target="_blank">SoundCloud &#8599;</a>
+                <div class="handle">soundcloud.com/defen-waste</div>
+                <a href="https://linktr.ee/2ero" target="_blank">Linktree &#8599;</a>
+                <div class="handle">All platforms &amp; links</div>
+                <a href="https://space.bilibili.com/353791121" target="_blank">Bilibili &#8599;</a>
+                <div class="handle">Bilibili Space</div>
+            </div>
+            <div class="contact-qr">
+                <div class="contact-qr-item">
+                    <img src="qr-wechat.jpg" alt="WeChat">
+                    <span>WeChat</span>
+                </div>
+                <div class="contact-qr-item">
+                    <img src="qr-xiaohongshu.jpg" alt="&#x5c0f;&#x7ea2;&#x4e66;">
+                    <span>&#x5c0f;&#x7ea2;&#x4e66;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<footer class="footer">
+    <p>&#x00a9; 2026 2ero &#x00b7; <a href="https://www.instagram.com/2eroo_/" target="_blank">Instagram</a> &#x00b7; <a href="https://soundcloud.com/defen-waste" target="_blank">SoundCloud</a> &#x00b7; <a href="https://space.bilibili.com/353791121" target="_blank">Bilibili</a></p>
+</footer>
+<script>
+    const player = document.getElementById('mainPlayer');
+    const thumbs = document.querySelectorAll('.video-thumb');
+    thumbs.forEach(el => {
+        el.addEventListener('click', () => {
+            thumbs.forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+            player.src = el.dataset.src;
+        });
+    });
+</script>
+</body>
+</html>
