@@ -26,7 +26,7 @@
              font-size: 0.95rem;
          }
          .container { max-width: 960px; margin: 0 auto; padding: 0 48px; }
-         .header { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+         .header { width: 100%; border-bottom: 1px solid var(--border); }.header-inner { max-width: 960px; margin: 0 auto; padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; }
          .header-logo { font-size: 1.3rem; font-weight: 400; letter-spacing: 0.12em; text-decoration: none; color: var(--text); }
          .header-links { display: flex; gap: 36px; }
          .header-links a { color: var(--text-dim); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; font-weight: 400; transition: color 0.3s; }
@@ -43,12 +43,12 @@
          .video-thumb .thumb-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; font-size: 1.5rem; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.5); }
          .video-thumb:hover .thumb-overlay { opacity: 1; }
          .video-thumb.active { border-left: 2px solid var(--text); }
-         .intro { padding: 0 0 80px; max-width: 680px; margin: 0 auto; }
+         .intro { padding: 0 0 80px; }
          .intro p { font-size: 0.95rem; margin-bottom: 28px; color: var(--text-dim); line-height: 2.2; }
          .intro strong { color: var(--text); font-weight: 500; }
-         .intro .en { font-size: 0.85rem; color: var(--text-faint); line-height: 2; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
-         .contact { padding: 60px 0; border-top: 1px solid var(--border); }
-         .contact-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; }
+         .intro .en { font-size: 0.85rem; color: var(--text-faint); line-height: 2; margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--border); }
+         .contact { padding: 80px 0; border-top: 1px solid var(--border); }
+         .contact-row { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 60px; }
          .contact-links { display: flex; flex-direction: column; gap: 4px; }
          .contact-links a { color: var(--text); text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em; transition: opacity 0.3s; display: inline-flex; align-items: center; gap: 6px; font-weight: 400; }
          .contact-links a:hover { opacity: 0.5; }
@@ -63,15 +63,19 @@
      </style>
  </head>
  <body>
- <div class="container">
-     <header class="header">
+ <header class="header">
+     <div class="header-inner">
          <a href="#" class="header-logo">2ero</a>
          <div class="header-links">
              <a href="https://www.instagram.com/2eroo_/" target="_blank">Instagram</a>
              <a href="https://soundcloud.com/defen-waste" target="_blank">SoundCloud</a>
              <a href="https://linktr.ee/2ero" target="_blank">Linktree</a>
          </div>
-     </header>
+     </div>
+ </header>
+ 
+ <div class="container">
+ 
  
      <section class="video-section">
          <div class="video-layout">
@@ -153,6 +157,8 @@
  </script>
  </body>
  </html>
+
+
 
 
 
