@@ -69,9 +69,10 @@
             .header-links a { font-size: 0.7rem; }
             .video-section { padding: 20px 0 40px; }
             .video-layout { grid-template-columns: 1fr; gap: 8px; }
-            .video-sidebar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; background: none; }
-            .video-thumb { border-bottom: none; aspect-ratio: 16/9; }
-            .video-thumb iframe { pointer-events: none; }
+            .video-sidebar { display: flex; flex-direction: row; gap: 8px; overflow-x: auto; background: none; padding: 4px 0; }
+            .video-sidebar::-webkit-scrollbar { display: none; }
+            .video-thumb { flex: 0 0 140px; border-bottom: none; aspect-ratio: 16/9; border-radius: 2px; }
+            .video-thumb iframe { pointer-events: none; border-radius: 2px; }
             .intro { padding: 0 0 40px; }
             .intro p { font-size: 0.85rem; margin-bottom: 20px; }
             .intro .en { font-size: 0.75rem; margin-top: 32px; padding-top: 20px; }
