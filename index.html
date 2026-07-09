@@ -33,17 +33,17 @@
         .header-links a { color: var(--text-dim); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.1em; font-weight: 400; transition: color 0.3s; }
         .header-links a:hover { color: var(--text); }
         .video-section { padding: 40px 0 80px; }
-        .video-layout { display: flex; gap: 12px; }
-        .video-main { flex: 1; aspect-ratio: 16/9; background: #E8E8E0; }
+        .video-layout { display: grid; grid-template-columns: 1fr 260px; gap: 12px; }
+        .video-main { aspect-ratio: 16/9; background: #E8E8E0; }
         .video-main iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
-        .video-sidebar { width: 260px; display: flex; flex-direction: column; background: var(--border); }
+        .video-sidebar { display: flex; flex-direction: column; background: var(--border); }
         .video-thumb { flex: 1; position: relative; cursor: pointer; overflow: hidden; background: var(--bg); border-bottom: 1px solid var(--border); }
         .video-thumb:last-child { border-bottom: none; }
         .video-thumb iframe { width: 100%; height: 100%; border: none; pointer-events: none; display: block; }
         .video-thumb .thumb-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; font-size: 1.5rem; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.5); }
         .video-thumb:hover .thumb-overlay { opacity: 1; }
         .video-thumb.active { border-left: 2px solid var(--text); }
-        .intro { padding: 0 0 80px; max-width: 680px; margin: 0 auto; }
+        .intro { padding: 0 0 80px; max-width: 680px; }
         .intro p { font-size: 0.95rem; margin-bottom: 28px; color: var(--text-dim); line-height: 2.2; }
         .intro strong { color: var(--text); font-weight: 500; }
         .intro .en { font-size: 0.85rem; color: var(--text-faint); line-height: 2; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
