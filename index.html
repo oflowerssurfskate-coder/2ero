@@ -33,11 +33,12 @@
          .header-links a:hover { color: var(--text); }
  
          .video-section { padding: 40px 0 80px; }
-         .video-layout { display: grid; grid-template-columns: 1fr 260px; gap: 12px; }
-         .video-main { aspect-ratio: 16/9; background: #E8E8E0; }
+         .video-layout { display: flex; gap: 12px; }
+         .video-main { flex: 1; aspect-ratio: 16/9; background: #E8E8E0; }
          .video-main iframe { width: 100%; height: 100%; border: none; display: block; }
-         .video-sidebar { display: grid; grid-template-rows: repeat(6, 1fr); gap: 1px; background: var(--border); }
-         .video-thumb { position: relative; cursor: pointer; overflow: hidden; background: var(--bg); border-bottom: 0; }
+         .video-sidebar { width: 260px; display: flex; flex-direction: column; background: var(--border); }
+         .video-thumb { flex: 1; position: relative; cursor: pointer; overflow: hidden; background: var(--bg); border-bottom: 1px solid var(--border); }
+         .video-thumb:last-child { border-bottom: none; }
          .video-thumb iframe { width: 100%; height: 100%; border: none; pointer-events: none; display: block; }
          .video-thumb .thumb-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; font-size: 1.5rem; color: white; text-shadow: 0 0 20px rgba(0,0,0,0.5); }
          .video-thumb:hover .thumb-overlay { opacity: 1; }
@@ -58,7 +59,7 @@
          .contact-qr-item span { font-size: 0.65rem; color: var(--text-faint); letter-spacing: 0.06em; }
          .footer { padding: 40px 0 60px; text-align: center; font-size: 0.7rem; color: var(--text-faint); }
          .footer a { color: var(--text); text-decoration: none; }
-         @media (max-width: 768px) { .container { padding: 0 24px; } .video-layout { grid-template-columns: 1fr; } .video-sidebar { grid-template-columns: repeat(6, 1fr); grid-template-rows: none; height: 80px; } .video-thumb { border-right: 1px solid var(--border); } .video-thumb:last-child { border-right: none; } .header-links { gap: 20px; } .contact-row { flex-direction: column; } }
+         @media (max-width: 768px) { .container { padding: 0 24px; } .video-layout { flex-direction: column; } .video-main { aspect-ratio: 16/9; } .video-sidebar { width: 100%; flex-direction: row; height: 80px; } .video-thumb { border-bottom: none; border-right: 1px solid var(--border); } .video-thumb:last-child { border-right: none; } .header-links { gap: 20px; } .contact-row { flex-direction: column; } }
      </style>
  </head>
  <body>
